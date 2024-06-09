@@ -1,6 +1,6 @@
-pandas
-numpy
-streamlit
-streamlit-option-menu
+pandas==2.1.4
+numpy==1.26.4
+streamlit==1.30.0
+streamlit-option-menu==0.3.13
 scikit-learn==1.2.2
-pickle
+xgboost==2.0.3
