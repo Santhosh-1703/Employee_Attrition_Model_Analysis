@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Set the page configuration with the Airbnb icon
-st.set_page_config(page_title='Employee Attrition Model Analysis ', page_icon="C:/Users/SANTHOSH RAJENDRAN/Desktop/GUVI Python/Projects-GUVI/Project-EmployeeAttrition/hr.png", layout="wide")
+st.set_page_config(page_title='Employee Attrition Model Analysis ', page_icon="hr.png", layout="wide")
 
 # Front Page Design
 st.markdown("<h1 style='text-align: center; font-weight: bold; font-family: Comic Sans MS;'>Employee Attrition Model Analysis Prediction</h1>", unsafe_allow_html=True)
@@ -88,17 +88,17 @@ elif selected_page == "DashBoard":
     st.markdown(f'<iframe title="EA_Dashboard" width="1600" height="700" src="{power_bi_report_url}" frameborder="0" allowFullScreen="true"></iframe>',unsafe_allow_html=True)
 
 elif selected_page == "Analysis Zone":
-            data = pd.read_csv(r"C:\Users\SANTHOSH RAJENDRAN\Desktop\GUVI Python\Projects-GUVI\Project-EmployeeAttrition\EA_Raw_data.csv")
+            data = pd.read_csv(r"EA_Raw_data.csv")
             df = pd.DataFrame(data)
             with st.form("form2"):
                     col1,col2=st.columns(2)
                     with col1:
                         # Load the pickled encoders
-                        with open(r"C:\Users\SANTHOSH RAJENDRAN\Desktop\GUVI Python\Projects-GUVI\Project-EmployeeAttrition\EA_encoders.pkl", 'rb') as f:
+                        with open(r"EA_encoders.pkl", 'rb') as f:
                             encoders = pickle.load(f)
 
                         # Load the pickled model
-                        with open(r"C:\Users\SANTHOSH RAJENDRAN\Desktop\GUVI Python\Projects-GUVI\Project-EmployeeAttrition\EA_classification_model.pkl", 'rb') as file:
+                        with open(r"EA_classification_model.pkl", 'rb') as file:
                             model = pickle.load(file)
 
                         # Define a function to preprocess input features
@@ -194,7 +194,7 @@ elif selected_page == "Analysis Zone":
 elif selected_page == "Charts":
     col1,col2,col3=st.columns(3)
     with col2:
-        df = pd.read_csv(r"C:\Users\SANTHOSH RAJENDRAN\Desktop\GUVI Python\Projects-GUVI\Project-EmployeeAttrition\EA_Raw_data.csv")
+        df = pd.read_csv(r"EA_Raw_data.csv")
         # Create a pie chart
         st.subheader("Employee Attrition Rate")
         attrition_rate = df["Attrition"].value_counts()
